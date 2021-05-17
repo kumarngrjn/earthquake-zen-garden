@@ -14,8 +14,10 @@
 
 .detailItemLabel {
     composes: detailItemLabel from './detail.css';
+    flex-shrink: 0;
 }
 
 .detailValueLabel {
     composes: detailValueLabel from './detail.css';
+    width: 200px;
 }
