@@ -1,0 +1,35 @@
+{
+    "parser": "@babel/eslint-parser",
+    "env": {
+      "browser": true,
+      "node": true,
+      "jquery": true,
+      "es6": true,
+      "mocha": true
+    },
+    "globals": {
+      "config": false,
+      "moment": true,
+      "iRound": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "semi": "off",
+      "no-undef": "warn",
+      "no-useless-escape": "off",
+      "no-control-regex":"off",
+      "react/prop-types": "off",
+      "react/no-string-refs":"warn",
+      "no-prototype-builtins":"off"
+    }
+  }

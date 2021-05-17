@@ -1,0 +1,15 @@
+.tableHeaderItem {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.tableHeaderItem:hover {
+    cursor: pointer;
+}
+
+.asc:after{
+	content: ' \25B2';
+}
+.desc:after{
+	content: ' \25BC';
+}
