@@ -1,16 +1,16 @@
 .tableHeaderItem {
-    text-align: center;
-    padding-bottom: 10px;
-    font-weight: normal;
+  text-align: center;
+  padding-bottom: 10px;
+  font-weight: normal;
 }
 
 .tableHeaderItem:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .asc:after{
-	content: ' \25B2';
+  content: ' \25B2';
 }
 .desc:after{
-	content: ' \25BC';
+  content: ' \25BC';
 }

@@ -1,23 +1,23 @@
 
 .detailWrapper {
-    display: flex;
+  display: flex;
 }
 
 .profileAvatar {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .detailItem{
-    display: flex;
-    margin: 10px 0;
+  display: flex;
+  margin: 10px 0;
 }
 
 .detailItemLabel {
-    composes: detailItemLabel from './detail.css';
-    flex-shrink: 0;
+  composes: detailItemLabel from './detail.css';
+  flex-shrink: 0;
 }
 
 .detailValueLabel {
-    composes: detailValueLabel from './detail.css';
-    width: 200px;
+  composes: detailValueLabel from './detail.css';
+  width: 200px;
 }

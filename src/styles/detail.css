@@ -1,14 +1,14 @@
 .detaillItem{
-    margin: 2px 0;
+  margin: 2px 0;
 }
 
 .detailItemLabel {
-    width: 100px;
-    display: inline-block;
-    font-weight: bold;
+  width: 100px;
+  display: inline-block;
+  font-weight: bold;
 }
 
 .detailValueLabel {
-    color: #777;
-    font-weight: bold;
+  color: #777;
+  font-weight: bold;
 }
