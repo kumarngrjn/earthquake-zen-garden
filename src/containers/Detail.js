@@ -2,7 +2,7 @@
 * Detail - Displays the detail of the selected earthquake
 */
 
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useHistory, useLocation} from 'react-router-dom'
 import PageTitle from '../components/PageTitle';
 import {capitalize} from '../helpers/helpers'
@@ -48,23 +48,23 @@ const Detail = () => {
             <label className={styles.detailItemLabel}>{capitalize(key)}</label>
             <label className={styles.detailValueLabel}>{detail[key]}</label>
           </li>
-          )
-        })}
-        </ul>
         )
-      }
+        })}
+      </ul>
+    )
+  }
       
-      // renders the earthquake detail
-      return (
-        <Fragment>
-        {detail && 
-          <div>
+  // renders the earthquake detail
+  return (
+    <>
+      {detail && 
+        <main>
           <PageTitle title={detail.title} />
           {renderDetail()}
-          </div>
-        }
-        </Fragment>
-        )
+        </main>
       }
-      
-      export default Detail;
+    </>
+  )
+}
+
+export default Detail;

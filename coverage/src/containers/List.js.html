@@ -207,7 +207,9 @@
 <a name='L148'></a><a href='#L148'>148</a>
 <a name='L149'></a><a href='#L149'>149</a>
 <a name='L150'></a><a href='#L150'>150</a>
-<a name='L151'></a><a href='#L151'>151</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,8 +360,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * List - Displays the list of earthquakes in the past hour
- */
+* List - Displays the list of earthquakes in the past hour
+*/
 import React, { useEffect, useState } from 'react';
 import TableHeaders from '../components/TableHeaders';
 import data from '../data.json';
@@ -367,6 +369,7 @@ import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
 import { compareDateAsc, compareDateDesc, compareNumberAsc, compareNumberDesc, compareStringsAsc, compareStringsDesc } from '../helpers/helpers';
+import styles from '../styles/list.css'
 &nbsp;
 const List = () =&gt; {
   // the list that needs to be displayed
@@ -380,37 +383,37 @@ const List = () =&gt; {
   // default sort is date descending
   const [sortKey, setSortKey] = useState('time')
   const [isAscending, setIsAscending] = useState(false);
-&nbsp;
+  
   /**
-   * runs on page
-   * sets the initial earthquake listed sorted by date in descending order
-   */
+  * runs on page
+  * sets the initial earthquake listed sorted by date in descending order
+  */
   useEffect(()=&gt;{
     // checks if the data exists 
     <span class="missing-if-branch" title="else path not taken" >E</span>if(data &amp;&amp; data.features &amp;&amp; data.features.length &gt; 0){
-        // creates a mapped array with only the necessary properties
-        const mappedData = data.features.map(item =&gt; {return {
-          id: item.id,
-          title:  item.properties.title,
-          magnitude: item.properties.mag,
-          time: format(item.properties.time, 'MMM dd yyyy, hh:mm a'),
-          status: item.properties.status,
-          tsunami: item.properties.tsunami,
-          type: item.properties.type,
-        }})
-        // sort the lists
-        const sortedList = sortLists(mappedData, sortKey, isAscending)
-        setLists(sortedList)
+      // creates a mapped array with only the necessary properties
+      const mappedData = data.features.map(item =&gt; {return {
+        id: item.id,
+        title:  item.properties.title,
+        magnitude: item.properties.mag,
+        time: format(item.properties.time, 'MMM dd yyyy, hh:mm a'),
+        status: item.properties.status,
+        tsunami: item.properties.tsunami,
+        type: item.properties.type,
+      }})
+      // sort the lists
+      const sortedList = sortLists(mappedData, sortKey, isAscending)
+      setLists(sortedList)
     }
     else {
 <span class="cstat-no" title="statement not covered" >      setLists([]);</span>
     }
   },[])
-&nbsp;
+  
   /**
-   * setSortOption - set the sort key , isAscending and the list sorted by the new key
-   * @param {string} option - the table header the list is being currently sorted on
-   */
+  * setSortOption - set the sort key , isAscending and the list sorted by the new key
+  * @param {string} option - the table header the list is being currently sorted on
+  */
   const setSortOption = option =&gt; {
     // if the sorted key is already the current sortkey , toggle isAscending flag and sort the list
     if(sortKey === option){
@@ -426,53 +429,53 @@ const List = () =&gt; {
       setLists(sortedList)
     }
   }
-&nbsp;
+  
   /**
-   * sortLists - sort the earthquake list that needs to be displayed
-   * @param {array} lists - array of objects of the earthquake list that needs to be sorted
-   * @param {string} sortKey - the key by which the list is to be sorted
-   * @param {boolean} isAscending - whether the list is to be sorted in ascending or descending options
-   * @returns the sorted lists 
-   */
+  * sortLists - sort the earthquake list that needs to be displayed
+  * @param {array} lists - array of objects of the earthquake list that needs to be sorted
+  * @param {string} sortKey - the key by which the list is to be sorted
+  * @param {boolean} isAscending - whether the list is to be sorted in ascending or descending options
+  * @returns the sorted lists 
+  */
   const sortLists = (lists, sortKey , isAscending) =&gt; {
-    // get the property that needs to be sorted
+    // get the property  that needs to be sorted and the index of the item in list and store it in an arraay
     const mapped = lists.map((item, i) =&gt; {
       return { i, value: item[sortKey] };
     })
-&nbsp;
+    
     // based on sortkey and is ascending call the respective sort method
     switch(sortKey){
       case 'title': 
-        if(isAscending){
-          mapped.sort(compareStringsAsc);
-        }
-        else{
-          mapped.sort(compareStringsDesc)
-        }
-        break;
+      if(isAscending){
+        mapped.sort(compareStringsAsc);
+      }
+      else{
+        mapped.sort(compareStringsDesc)
+      }
+      break;
       case 'magnitude': 
-        if(isAscending){
-          mapped.sort(compareNumberAsc);
-        }
-        else{
-          mapped.sort(compareNumberDesc);
-        }
-        break;
+      if(isAscending){
+        mapped.sort(compareNumberAsc);
+      }
+      else{
+        mapped.sort(compareNumberDesc);
+      }
+      break;
       case 'time': 
-        if(isAscending){
-          mapped.sort(compareDateAsc)
-        }
-        else{
-          mapped.sort(compareDateDesc)
-        }
-        break;
+      if(isAscending){
+        mapped.sort(compareDateAsc)
+      }
+      else{
+        mapped.sort(compareDateDesc)
+      }
+      break;
       
     }
     // remap the sorted mapped array to the original list and return the sorted list
     const result = mapped.map(item =&gt; lists[item.i]);
     return result;
   }
-&nbsp;
+  
   
   const tableHeaderProps = {
     headers: tableHeaders,
@@ -480,33 +483,33 @@ const List = () =&gt; {
     isAscending,
     setSortOption
   }
-&nbsp;
+  
   return (
-      &lt;div&gt;
-        &lt;PageTitle title={'USGS All Earthquakes, Past Hour'} /&gt;
-        {lists.length &gt; 0 &amp;&amp; 
-          &lt;table&gt;
-            &lt;thead&gt;
-              &lt;TableHeaders {...tableHeaderProps}  /&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-              {lists &amp;&amp; lists.length &gt; 0 &amp;&amp; lists.map(item =&gt; {return (
-                &lt;tr key={item.id}&gt;
-                  &lt;td&gt;&lt;Link to={{pathname:'/detail/'+item.id, state: {data: item}}}&gt;{item.title}&lt;/Link&gt;&lt;/td&gt;
-                  &lt;td&gt;{item.magnitude}&lt;/td&gt;
-                  &lt;td&gt;{item.time}&lt;/td&gt;
-                &lt;/tr&gt;
-              )}
-              )}
-&nbsp;
-            &lt;/tbody&gt;
-          &lt;/table&gt;
-        }
-        {lists.length === 0 &amp;&amp; &lt;span&gt;No earthquakes in the past hour.&lt;/span&gt;}
-      &lt;/div&gt;
+    &lt;main&gt;
+      &lt;PageTitle title={'USGS All Earthquakes, Past Hour'} /&gt;
+      {lists.length &gt; 0 &amp;&amp; 
+        &lt;table&gt;
+          &lt;thead&gt;
+            &lt;TableHeaders {...tableHeaderProps}  /&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            {lists &amp;&amp; lists.length &gt; 0 &amp;&amp; lists.map(item =&gt; {return (
+              &lt;tr key={item.id}&gt;
+                &lt;td className={styles.tdTitle}&gt;&lt;Link to={{pathname:'/detail/'+item.id, state: {data: item}}}&gt;{item.title}&lt;/Link&gt;&lt;/td&gt;
+                &lt;td className={styles.tdMagnitude}&gt;{item.magnitude}&lt;/td&gt;
+                &lt;td className={styles.tdTitle}&gt;{item.time}&lt;/td&gt;
+              &lt;/tr&gt;
+            )}
+            )}
+            
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      }
+      {lists.length === 0 &amp;&amp; &lt;span&gt;No earthquakes in the past hour.&lt;/span&gt;}
+    &lt;/main&gt;
   )
 }
-&nbsp;
+    
 export default List;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -514,7 +517,7 @@ export default List;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 14 2021 18:31:38 GMT-0400 (Eastern Daylight Time)
+                at Mon May 17 2021 20:19:35 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

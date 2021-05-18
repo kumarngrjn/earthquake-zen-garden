@@ -124,7 +124,7 @@ const List = () => {
   }
   
   return (
-    <div>
+    <main>
       <PageTitle title={'USGS All Earthquakes, Past Hour'} />
       {lists.length > 0 && 
         <table>
@@ -140,12 +140,11 @@ const List = () => {
               </tr>
             )}
             )}
-            
           </tbody>
         </table>
       }
       {lists.length === 0 && <span>No earthquakes in the past hour.</span>}
-    </div>
+    </main>
   )
 }
     

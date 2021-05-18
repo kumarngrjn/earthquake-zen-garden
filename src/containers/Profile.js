@@ -2,7 +2,7 @@
 * Detail - Displays the profile information of loggedin user
 */
 
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import {useHistory, useLocation} from 'react-router-dom'
 import PageTitle from '../components/PageTitle';
 import {capitalize} from '../helpers/helpers'
@@ -58,14 +58,14 @@ const Profile = () => {
       
   //renders the profile detail
   return (
-    <Fragment>
-    {profile && 
-      <div>
-        <PageTitle title={'Profile'} />
-        {renderDetail()}
-      </div>
-    }
-    </Fragment>
+    <>
+      {profile && 
+        <main>
+          <PageTitle title={'Profile'} />
+          {renderDetail()}
+        </main>
+      }
+    </>
   )
 }
   

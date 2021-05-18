@@ -200,76 +200,76 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * Detail - Displays the profile information of loggedin user
- */
+* Detail - Displays the profile information of loggedin user
+*/
 &nbsp;
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import {useHistory, useLocation} from 'react-router-dom'
 import PageTitle from '../components/PageTitle';
 import {capitalize} from '../helpers/helpers'
 import styles from '../styles/profile.css'
 &nbsp;
 const Profile = () =&gt; {
-    const history = useHistory();
-    const location = useLocation();
-    // stores the detail of the profile
-    const[profile, setProfile] = useState({});
-    useEffect(() =&gt; {
-        // checks if the location object exists 
-        if(location &amp;&amp; location.state){
-            const data = location.state.data;
-            <span class="missing-if-branch" title="else path not taken" >E</span>if(data){
-                setProfile(data);
-            }
-            // if data doesnt exist redirect back to the list page
-            else{
-<span class="cstat-no" title="statement not covered" >                history.push('/')</span>
-            }
-        }
-        // if no location object exists redirect back to the lists page
-        else{
-            history.push('/')
-        }
-    })
-    /**
-     * renderDetail - renders the individual details of the profile
-     * @returns the individual detail of profile in html
-     */
-    const renderDetail = () =&gt;{
-        // get all the keys that needs to be rendered except avatarImage since it needs to be rendered separately
-        const keys = Object.keys(profile).filter(key =&gt; key !== 'avatarImage');
-        return (
-            &lt;div className={styles.detailWrapper}&gt;
-                &lt;div className={styles.profileAvatar}&gt;
-                    &lt;img src={profile['avatarImage']} alt={'profile picture'} width={200} heighr={200} /&gt;
-                &lt;/div&gt;
-                &lt;ul&gt;
-                    {keys.map(key =&gt; {
-                        return (
-                            &lt;li key={key} className={styles.detailItem}&gt; 
-                                &lt;label className={styles.detailItemLabel}&gt;{capitalize(key)}&lt;/label&gt;
-                                &lt;label className={styles.detailValueLabel}&gt;{profile[key]}&lt;/label&gt;
-                            &lt;/li&gt;
-                        )
-                    })}
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        )
+  const history = useHistory();
+  const location = useLocation();
+  // stores the detail of the profile
+  const[profile, setProfile] = useState({});
+  useEffect(() =&gt; {
+    // checks if the location object exists 
+    if(location &amp;&amp; location.state){
+      const data = location.state.data;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(data){
+        setProfile(data);
+      }
+      // if data doesnt exist redirect back to the list page
+      else{
+<span class="cstat-no" title="statement not covered" >        history.push('/')</span>
+      }
     }
-&nbsp;
-    //renders the profile detail
+    // if no location object exists redirect back to the lists page
+    else{
+      history.push('/')
+    }
+  })
+  /**
+  * renderDetail - renders the individual details of the profile
+  * @returns the individual detail of profile in html
+  */
+  const renderDetail = () =&gt;{
+    // get all the keys that needs to be rendered except avatarImage since it needs to be rendered separately
+    const keys = Object.keys(profile).filter(key =&gt; key !== 'avatarImage');
     return (
-        &lt;Fragment&gt;
-        {profile &amp;&amp; 
-            &lt;div&gt;
-                &lt;PageTitle title={'Profile'} /&gt;
-                {renderDetail()}
-            &lt;/div&gt;
-        }
-        &lt;/Fragment&gt;
+      &lt;div className={styles.detailWrapper}&gt;
+        &lt;div className={styles.profileAvatar}&gt;
+          &lt;img src={profile['avatarImage']} alt={'profile picture'} width={200} heighr={200} loading={'lazy'} /&gt;
+        &lt;/div&gt;
+        &lt;ul&gt;
+          {keys.map(key =&gt; {
+            return (
+              &lt;li key={key} className={styles.detailItem}&gt; 
+                &lt;label className={styles.detailItemLabel}&gt;{capitalize(key)}&lt;/label&gt;
+                &lt;label className={styles.detailValueLabel}&gt;{profile[key]}&lt;/label&gt;
+              &lt;/li&gt;
+              )
+            })}
+        &lt;/ul&gt;
+      &lt;/div&gt;
     )
+  }
+      
+  //renders the profile detail
+  return (
+    &lt;&gt;
+      {profile &amp;&amp; 
+        &lt;main&gt;
+          &lt;PageTitle title={'Profile'} /&gt;
+          {renderDetail()}
+        &lt;/main&gt;
+      }
+    &lt;/&gt;
+  )
 }
-&nbsp;
+  
 export default Profile;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -277,7 +277,7 @@ export default Profile;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 14 2021 18:31:38 GMT-0400 (Eastern Daylight Time)
+                at Mon May 17 2021 20:19:35 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

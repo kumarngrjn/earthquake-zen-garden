@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import './styles/index.css';
 import {
@@ -13,9 +13,9 @@ import List from './containers/List';
 const App = () => {
   /** defines the header and different pages to switch based on url */
   return(
-    <Fragment>
+    <>
       <Header></Header>
-      <div className='content'>
+      <main className='content'>
         <Switch>
           <Route path="/profile">
             <Profile />
@@ -27,8 +27,8 @@ const App = () => {
             <List />
           </Route>
         </Switch>
-      </div>
-    </Fragment>
+      </main>
+    </>
   )
 }
   
