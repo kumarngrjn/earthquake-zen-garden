@@ -4,6 +4,7 @@
 
 import React, {useEffect, useState } from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
+import Image from '../components/Image';
 import PageTitle from '../components/PageTitle';
 import {capitalize} from '../helpers/helpers';
 import styles from '../styles/profile.css';
@@ -43,7 +44,7 @@ const Profile = () => {
     return (
       <div className={styles.detailWrapper}>
         <div className={styles.profileAvatar}>
-          <img src={profile['avatarImage']} alt={'profile picture'} width={200} heighr={200} loading={'lazy'} />
+          <Image source={profile['avatarImage']} alt={'profile picture'} width={200} height={200} />
         </div>
         <ul>
           {keys.map(key => {

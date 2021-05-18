@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
 import { compareDateAsc, compareDateDesc, compareNumberAsc, compareNumberDesc, compareStringsAsc, compareStringsDesc } from '../helpers/helpers';
-import styles from '../styles/list.css'
+import styles from '../styles/list.css';
 
 const List = () => {
   // the list that needs to be displayed
