@@ -12,7 +12,7 @@ import styles from '../styles/list.css'
 
 const List = () => {
   // the list that needs to be displayed
-  const [lists, setLists] = useState([])
+  const [lists, setLists] = useState([]);
   // the table headers
   const tableHeaders = [
     {key: 'title', value: 'Title'},
@@ -20,7 +20,7 @@ const List = () => {
     {key: 'time', value: 'Time'}
   ]
   // default sort is date descending
-  const [sortKey, setSortKey] = useState('time')
+  const [sortKey, setSortKey] = useState('time');
   const [isAscending, setIsAscending] = useState(false);
   
   /**
@@ -39,10 +39,10 @@ const List = () => {
         status: item.properties.status,
         tsunami: item.properties.tsunami,
         type: item.properties.type,
-      }})
+      }});
       // sort the lists
-      const sortedList = sortLists(mappedData, sortKey, isAscending)
-      setLists(sortedList)
+      const sortedList = sortLists(mappedData, sortKey, isAscending);
+      setLists(sortedList);
     }
     else {
       setLists([]);
@@ -56,16 +56,16 @@ const List = () => {
   const setSortOption = option => {
     // if the sorted key is already the current sortkey , toggle isAscending flag and sort the list
     if(sortKey === option){
-      const sortedList = sortLists(lists, sortKey, !isAscending)
-      setIsAscending(!isAscending)
-      setLists(sortedList)
+      const sortedList = sortLists(lists, sortKey, !isAscending);
+      setIsAscending(!isAscending);
+      setLists(sortedList);
     }
     // if the sorted key is not the newly selected option, set the sortKey and set isAscending to true
     else {
-      const sortedList = sortLists(lists, option, true)
-      setSortKey(option)
-      setIsAscending(true)
-      setLists(sortedList)
+      const sortedList = sortLists(lists, option, true);
+      setSortKey(option);
+      setIsAscending(true);
+      setLists(sortedList);
     }
   }
   
@@ -85,29 +85,37 @@ const List = () => {
     // based on sortkey and is ascending call the respective sort method
     switch(sortKey){
       case 'title': 
-      if(isAscending){
-        mapped.sort(compareStringsAsc);
-      }
-      else{
-        mapped.sort(compareStringsDesc)
-      }
-      break;
+        if(isAscending){
+          mapped.sort(compareStringsAsc);
+        }
+        else{
+          mapped.sort(compareStringsDesc);
+        }
+        break;
       case 'magnitude': 
-      if(isAscending){
-        mapped.sort(compareNumberAsc);
-      }
-      else{
-        mapped.sort(compareNumberDesc);
-      }
-      break;
+        if(isAscending){
+          mapped.sort(compareNumberAsc);
+        }
+        else{
+          mapped.sort(compareNumberDesc);
+        }
+        break;
       case 'time': 
-      if(isAscending){
-        mapped.sort(compareDateAsc)
-      }
-      else{
-        mapped.sort(compareDateDesc)
-      }
-      break;
+        if(isAscending){
+          mapped.sort(compareDateAsc);
+        }
+        else{
+          mapped.sort(compareDateDesc);
+        }
+        break;
+      default:
+        if(isAscending){
+          mapped.sort(compareDateAsc);
+        }
+        else{
+          mapped.sort(compareDateDesc);
+        }
+        break;
       
     }
     // remap the sorted mapped array to the original list and return the sorted list

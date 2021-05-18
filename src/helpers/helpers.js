@@ -5,7 +5,7 @@
  */
 export const capitalize = (s) => {
     if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
+    return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 /**
@@ -16,8 +16,8 @@ export const capitalize = (s) => {
  */
 export const compareStringsAsc = (a,b) => {
   // convert to uppper case so that both strings are in same case
-  const uppercaseA = a.value.toUpperCase()
-  const uppercaseB = b.value.toUpperCase()
+  const uppercaseA = a.value.toUpperCase();
+  const uppercaseB = b.value.toUpperCase();
   if (uppercaseA > uppercaseB) {
     return 1;
   }
@@ -35,8 +35,8 @@ export const compareStringsAsc = (a,b) => {
  */
 export const compareStringsDesc = (a,b) => {
   // convert to uppper case so that both strings are in same case
-  const uppercaseA = a.value.toUpperCase()
-  const uppercaseB = b.value.toUpperCase()
+  const uppercaseA = a.value.toUpperCase();
+  const uppercaseB = b.value.toUpperCase();
   if (uppercaseA > uppercaseB) {
     return -1;
   }
@@ -54,7 +54,7 @@ export const compareStringsDesc = (a,b) => {
  * @returns sorted numbers
  */
 export const compareNumberAsc = (a,b) => {
- return  a.value - b.value
+ return  a.value - b.value;
 }
 
 /**
@@ -64,7 +64,7 @@ export const compareNumberAsc = (a,b) => {
  * @returns sorted numbers
  */
 export const compareNumberDesc = (a,b) => {
-  return  b.value - a.value
+  return  b.value - a.value;
 }
 
 

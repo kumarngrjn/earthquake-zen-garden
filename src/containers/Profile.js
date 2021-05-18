@@ -3,10 +3,10 @@
 */
 
 import React, {useEffect, useState } from 'react';
-import {useHistory, useLocation} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
-import {capitalize} from '../helpers/helpers'
-import styles from '../styles/profile.css'
+import {capitalize} from '../helpers/helpers';
+import styles from '../styles/profile.css';
 
 const Profile = () => {
   const history = useHistory();
@@ -23,12 +23,12 @@ const Profile = () => {
       }
       // if data doesnt exist redirect back to the list page
       else{
-        history.push('/')
+        history.push('/');
       }
     }
     // if no location object exists redirect back to the lists page
     else{
-      history.push('/')
+      history.push('/');
     }
   }, [])
 

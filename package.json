@@ -10,7 +10,6 @@
     ]
   },
   "scripts": {
-    "create": "webpack",
     "start": "webpack serve --open",
     "test": "jest"
   },
