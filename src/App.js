@@ -1,10 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import './styles/index.css';
-import {
-  Switch,
-  Route
-} from "react-router-dom";
+import {Switch,Route} from "react-router-dom";
 import Profile from './containers/Profile';
 import Detail from './containers/Detail';
 import List from './containers/List';

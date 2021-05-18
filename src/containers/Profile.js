@@ -13,6 +13,7 @@ const Profile = () => {
   const location = useLocation();
   // stores the detail of the profile
   const[profile, setProfile] = useState({});
+
   useEffect(() => {
     // checks if the location object exists 
     if(location && location.state){
@@ -29,7 +30,9 @@ const Profile = () => {
     else{
       history.push('/')
     }
-  })
+  }, [])
+
+
   /**
   * renderDetail - renders the individual details of the profile
   * @returns the individual detail of profile in html

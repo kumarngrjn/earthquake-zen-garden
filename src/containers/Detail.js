@@ -13,6 +13,8 @@ const Detail = () => {
   const location = useLocation();
   // stores the detail of the earthquake
   const[detail, setDetail] = useState({});
+
+
   useEffect(() => {
     // checks if the location object exists 
     if(location && location.state){
@@ -30,7 +32,7 @@ const Detail = () => {
     else{
       history.push('/')
     }
-  })
+  }, [])
   
   /**
   * renderDetail - renders the individual details of the earthquake
