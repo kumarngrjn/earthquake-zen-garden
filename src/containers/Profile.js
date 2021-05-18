@@ -46,8 +46,8 @@ const Profile = () => {
           {keys.map(key => {
             return (
               <li key={key} className={styles.detailItem}> 
-              <label className={styles.detailItemLabel}>{capitalize(key)}</label>
-              <label className={styles.detailValueLabel}>{profile[key]}</label>
+                <label className={styles.detailItemLabel}>{capitalize(key)}</label>
+                <label className={styles.detailValueLabel}>{profile[key]}</label>
               </li>
               )
             })}
@@ -61,8 +61,8 @@ const Profile = () => {
     <Fragment>
     {profile && 
       <div>
-      <PageTitle title={'Profile'} />
-      {renderDetail()}
+        <PageTitle title={'Profile'} />
+        {renderDetail()}
       </div>
     }
     </Fragment>

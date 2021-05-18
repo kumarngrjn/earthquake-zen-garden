@@ -45,8 +45,8 @@ const Detail = () => {
       {keys.map(key => {
         return (
           <li key={key} className={styles.detailItem}> 
-          <label className={styles.detailItemLabel}>{capitalize(key)}</label>
-          <label className={styles.detailValueLabel}>{detail[key]}</label>
+            <label className={styles.detailItemLabel}>{capitalize(key)}</label>
+            <label className={styles.detailValueLabel}>{detail[key]}</label>
           </li>
           )
         })}
